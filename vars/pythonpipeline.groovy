@@ -5,7 +5,7 @@ def call() {
                 sh """
                 cd /var/lib/jenkins/workspace/${JOB_NAME}/
                 echo 'Building..'
-                docker build -t durgaprasad444/${p.appname}:v1 .
+                docker build -t Your docker registery name/${p.appname}:v1 .
                 """
     }
             }
