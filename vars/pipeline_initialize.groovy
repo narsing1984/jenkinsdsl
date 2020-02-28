@@ -1,7 +1,7 @@
 def call() {
 def label = "jenkins-slave-${UUID.randomUUID().toString()}"
 podTemplate(label: label, containers: [
-    containerTemplate(name: 'slave1', image: 'durgaprasad444/jenkins-slave-jnlp1', ttyEnabled: true, command: 'cat')
+    containerTemplate(name: 'slave1', image: 'your-own-registery/jenkins-slave', ttyEnabled: true, command: 'cat')
 ],
 volumes: [
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
@@ -19,7 +19,7 @@ volumes: [
         submoduleCfg: [],
         userRemoteConfigs: [[
             credentialsId: 'bitbucket_cred', 
-          url: "https://tech-devops@bitbucket.org/sil-dev/${folder}.git"
+          url: "Your-git-url/your-project/${folder}.git"
              ]]])
                 
      stage("LOADING PIPELINE_CONFIG") {
@@ -28,7 +28,7 @@ sh 'rm deployconfig -rf; mkdir deployconfig; chmod -R 777 deployconfig'
 dir ('deployconfig') {
 git branch: 'master',
 credentialsId: 'bitbucket_cred',
-url: 'https://tech-devops@bitbucket.org/sil-dev/deploy-configs.git'
+url: 'Your-git-url/your-project where your deployconfig is there/deploy-configs.git'
 }
 
    
