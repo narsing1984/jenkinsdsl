@@ -26,14 +26,14 @@ def namespace = p.namespace + tag
     stage("BUILD IMAGE") {
                 container('slave1') { 
                 sh """
-                docker build --build-arg ENV=${tag} -t gcr.io/sentrifugo/${p.appname}-${tag}:$BUILD_NUMBER .
+                docker build --build-arg ENV=${tag} -t your-own-docker -registary-name/${p.appname}-${tag}:$BUILD_NUMBER .
                 """
                 }
                 }
     stage('PUSH IMAGE') {
                  container('slave1') {
-                 docker.withRegistry('https://gcr.io', 'gcr:sentrifugo') {
-                 sh "docker push gcr.io/sentrifugo/${p.appname}-${tag}:$BUILD_NUMBER"
+                 docker.withRegistry('https:your-own-docker -registary-name') {
+                 sh "docker push your-own-docker -registary-name/${p.appname}-${tag}:$BUILD_NUMBER"
     
     
             }
