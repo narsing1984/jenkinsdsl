@@ -8,7 +8,7 @@ def createDeploymentJob(jobName, repourl) {
             retriever: modernSCM(
               [
                 $class: 'GitSCMSource',
-                remote: 'https://tech-devops@bitbucket.org/sil-dev/dsl-jobs.git',
+                remote: 'Your git url where the your shared library code is plased',
                 credentialsId: 'bitbucket_cred'
               ]
             )
@@ -31,7 +31,7 @@ def createrollbackJob(jobName, repourl) {
             retriever: modernSCM(
               [
                 $class: 'GitSCMSource',
-                remote: 'https://tech-devops@bitbucket.org/sil-dev/dsl-jobs.git',
+                remote: 'Your git url where the your shared library code is plased',
                 credentialsId: 'bitbucket_cred'
               ]
             )
