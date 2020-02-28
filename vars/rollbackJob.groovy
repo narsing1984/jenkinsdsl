@@ -3,7 +3,7 @@ import com.customized.GlobalVars
 def call() {
 def label = "jenkins-slave-${UUID.randomUUID().toString()}"
 podTemplate(label: label, containers: [
-    containerTemplate(name: 'slave1', image: 'gcr.io/sentrifugo/jenkins-slave:v1', ttyEnabled: true, command: 'cat')
+    containerTemplate(name: 'slave1', image: 'Your-registary-name/imagename:version number', ttyEnabled: true, command: 'cat')
 ],
 volumes: [
   hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock')
@@ -21,7 +21,7 @@ sh 'rm deployconfig -rf; mkdir deployconfig; chmod -R 777 deployconfig'
 dir ('deployconfig') {
 git branch: 'master',
 credentialsId: 'bitbucket_cred',
-url: 'https://tech-devops@bitbucket.org/sil-dev/deploy-configs.git'
+url: 'your git url/deploy-configs.git'
          }
        }
       } 
